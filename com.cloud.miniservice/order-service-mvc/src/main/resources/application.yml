@@ -1,0 +1,22 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: orderservice
+  datasource:
+    url: jdbc:mysql://localhost/mybatis
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+userservice:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.alibaba.cloud.nacos.ribbon.NacosRule # 负载均衡规则
+ribbon:
+  eager-load:
+    enabled: true # 开启 饥饿加载模式
+    clients: userservice # set this userservice use hangrag load
+
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://127.0.0.1:10086/eureka/
