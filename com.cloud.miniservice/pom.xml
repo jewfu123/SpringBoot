@@ -8,6 +8,8 @@
   <modules>
     <module>order-service-mvc</module>
     <module>user-service2</module>
+    <module>feign-api</module>
+    <module>gateway</module>
   </modules>
   
   <packaging>pom</packaging>

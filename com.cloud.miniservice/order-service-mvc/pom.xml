@@ -46,13 +46,12 @@
             <artifactId>feign-httpclient</artifactId>
         </dependency>
         <!--引入feign的统一api-->
-        <!--
         <dependency>
             <groupId>cn.itcast.demo</groupId>
             <artifactId>feign-api</artifactId>
             <version>1.0</version>
         </dependency>
-        -->
+        
         <dependency>
         	<groupId>cn.itcast.demo</groupId>
         	<artifactId>user-service2</artifactId>

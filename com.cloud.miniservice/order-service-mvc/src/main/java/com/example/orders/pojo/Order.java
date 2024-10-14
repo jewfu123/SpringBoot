@@ -1,7 +1,7 @@
 package com.example.orders.pojo;
 
 import java.sql.Date;
-import com.example.users.pojo.User;
+import cn.itcast.feign.pojo.User;
 import lombok.Data;
 
 @Data

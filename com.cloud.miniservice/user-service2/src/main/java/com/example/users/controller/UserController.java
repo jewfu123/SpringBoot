@@ -1,5 +1,7 @@
 package com.example.users.controller;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -10,15 +12,28 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import com.example.users.config.PatternProperties;
 import com.example.users.mapper.UserMapper;
 import com.example.users.pojo.User;
 
 @RestController
+//@RefreshScope
 @RequestMapping("/user")
 public class UserController {
 	
 	@Autowired
     UserMapper userMapper;
+	
+//	@Value("${pattern.dateformat}")
+//	private String dateformat;
+
+	@Autowired
+	private PatternProperties properties;
+	
+	@GetMapping("prop")
+	public PatternProperties properties() {
+	  return properties;
+	}
 	
 	@GetMapping("test")
 	public String test() {
@@ -28,6 +43,11 @@ public class UserController {
 	@GetMapping("users")
 	public List<User> read() {
 		return userMapper.read();
+	}
+	
+	@GetMapping("now")
+	public String getNow() {
+	  return LocalDateTime.now().format(DateTimeFormatter.ofPattern(properties.getDateformat()));
 	}
 	
 	@PostMapping("")
